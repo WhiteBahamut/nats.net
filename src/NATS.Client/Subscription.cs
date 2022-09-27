@@ -66,7 +66,7 @@ namespace NATS.Client
 
         internal Func<Msg, Msg> BeforeChannelAddCheck;
 
-        internal Subscription(Connection conn, string subject, string queue)
+        internal Subscription(IConnection conn, string subject, string queue)
         {
             this.conn = conn;
             this.subject = subject;
@@ -137,7 +137,7 @@ namespace NATS.Client
         /// <summary>
         /// Gets the <see cref="Connection"/> associated with this instance.
         /// </summary>
-        public Connection Connection => conn;
+        public IConnection Connection => conn;
 
         //caller must lock
         internal bool tallyMessage(long bytes)
